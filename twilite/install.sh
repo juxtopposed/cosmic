@@ -26,12 +26,17 @@ echo "Creating configuration..."
 mkdir -p ~/.config/twilite
 
 if [ ! -f ~/.config/twilite/config.toml ]; then
-cat > ~/.config/twilite/config.toml << EOF
-# Paste the paths to your actual wallpapers.
+cat > ~/.config/twilite/config.toml <<'CONFIG'
+# Valid transition types for `awww img`:
+#   simple, left, right, top, bottom, center, outer, any, random
+# Valid transition_step and transition_fps values: 1..255
 
 light = "/path/to/light.png"
 dark = "/path/to/dark.png"
-EOF
+transition_type = "simple"
+transition_step = 2
+transition_fps = 30
+CONFIG
 fi
 
 if command -v update-desktop-database >/dev/null 2>&1; then
