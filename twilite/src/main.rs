@@ -6,6 +6,8 @@ use std::{
     time::Duration,
 };
 
+const THEME_POLL_INTERVAL: Duration = Duration::from_millis(500);
+
 const VALID_TRANSITION_TYPES: [&str; 9] = [
     "simple",
     "left",
@@ -186,7 +188,7 @@ fn main() {
             last_theme = Some(dark);
         }
 
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(THEME_POLL_INTERVAL);
     }
 }
 
