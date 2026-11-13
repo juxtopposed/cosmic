@@ -52,14 +52,13 @@ cargo build --release
 sudo install -m 755 target/release/awww /usr/local/bin/awww
 sudo install -m 755 target/release/awww-daemon /usr/local/bin/awww-daemon
 ```
-2. Download `twilite.zip` from this repo
-3. Extract in Home folder
-4. In the terminal, run this:
+2. Clone this repository and run the installer:
 ```
-cd twilite
+git clone https://github.com/JamePlatex/juxtopposed-cosmic.git
+cd juxtopposed-cosmic/twilite
 ./install.sh
 ```
-It will automatically install the dependencies.
+This builds and installs Twilite. Make sure Rust and Cargo are installed first.
 
 5. Edit the config file at `~/.config/twilite/config.toml` and paste the correct paths to your wallpapers. Example:
 ```toml
