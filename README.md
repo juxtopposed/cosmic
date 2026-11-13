@@ -44,21 +44,33 @@ ln -s /usr/share/icons/default /home/user/.local/share/icons/default
 
 ### Twilite (Dynamic Light/Dark Wallpaper Switcher)
 
-1. Install swww:
+1. Install `awww` from source because it is not available in the official Debian/Ubuntu repositories (including Pop!_OS):
 ```
-sudo apt update
-sudo apt install swww
+git clone https://codeberg.org/LGFae/awww.git
+cd awww
+cargo build --release
+sudo install -m 755 target/release/awww /usr/local/bin/awww
+sudo install -m 755 target/release/awww-daemon /usr/local/bin/awww-daemon
 ```
-3. Download `twilite.zip` from this repo
-4. Extract in Home folder
-5. In the terminal, run this:
+2. Clone this repository and run the installer:
 ```
-cd twilite
+git clone https://github.com/JamePlatex/juxtopposed-cosmic.git
+cd juxtopposed-cosmic/twilite
 ./install.sh
 ```
-It will automatically install the dependencies.
+This builds and installs Twilite. Make sure Rust and Cargo are installed first.
 
-5. Edit the config file at `~/.config/twilite/config.toml` and paste the correct paths to your wallpapers.
+5. Edit the config file at `~/.config/twilite/config.toml` and paste the correct paths to your wallpapers. Example:
+```toml
+# Valid transition types for `awww img`:
+#   simple, left, right, top, bottom, center, outer, any, random
+# Valid transition_step and transition_fps values: 1..255
+light = "/path/to/light.png"
+dark = "/path/to/dark.png"
+transition_type = "simple"
+transition_step = 2
+transition_fps = 30
+```
 6. The app works based on your system theme. So, whenever you turn on your PC, launch the app, and it will automatically set your specified wallpaper for the current theme.
 
 
